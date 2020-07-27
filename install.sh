@@ -1,7 +1,7 @@
 clear
 sudo apt update
 clear
-sudo apt install apache2
+sudo apt install apache2 -y
 clear
 chmod +x *
 sudo cp /$HOME/xDoS/xdos /usr/bin
